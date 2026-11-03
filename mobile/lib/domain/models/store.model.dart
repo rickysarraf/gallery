@@ -29,6 +29,10 @@ enum StoreKey<T> {
   // Read-only Mode settings
   readonlyModeEnabled<bool>._(138),
 
+  // App Lock settings
+  appLockEnabled<bool>._(90008),
+  appLockTimeout<int>._(90009),
+
   syncMigrationStatus<String>._(1013),
 
   // Legacy keys that have been migrated to the new metadata store
