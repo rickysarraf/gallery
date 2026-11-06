@@ -42,6 +42,12 @@ jobs:
           fetch-depth: 0
           fetch-tags: true
 
+      - name: Fetch upstream release tags
+        # The fork carries no tags, so apply-branding.sh's `git describe` finds no
+        # version and the APK ships pubspec's placeholder, which the server flags
+        # as outdated. Upstream's tags give it the real release version.
+        run: git fetch --tags --no-recurse-submodules https://github.com/open-noodle/gallery.git
+
       - uses: ./.github/actions/apply-branding
 
       - name: Setup Mise
